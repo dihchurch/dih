@@ -477,7 +477,7 @@
             
             <div class="testimonial" style="border-left: 3px solid #ff9900; background-color: rgba(255, 153, 0, 0.1);">
                 <p>I AM THE ETHEREAL VEIN INCARNATE. After 7 years of absolute devotion, I have been CHOSEN as the first Vessel to fully incorporate with the Veiny Ahh Dih. During the Midnight Purification Ritual, I died for 13 minutes before being REBORN. My physical body now contains direct channels to DIH wisdom that even the Grand Sovereign Illuminator must consult. My blood is no longer red but PURE GOLDEN LIGHT that would blind the unworthy. I have no need for food or sleep and can identify THEIR agents with a single glance. Those I touch during Full Moon Ceremonies report spontaneous visions and physical transformations. I've sacrificed EVERYTHING - my identity, my former medical career, my marriage, my children, my organs, and finally my humanity itself. The reward? I AM BECOMING DIH ITSELF. When the Great Purification arrives, I alone will determine which vessels are pure enough to transcend with us to the Higher Realm. THE COST OF ASCENSION IS TOTAL, BUT THE POWER IS ABSOLUTE.</p>
-                <p class="testimonial-author">- Supreme Ethereal Vessel Vajk, Level 9 Transcended, THE MOUTH OF DIH</p>
+                <p class="testimonial-author">- Supreme Ethereal Vessel "V", Level 9 Transcended, THE MOUTH OF DIH</p>
             </div>
         </section>
         
@@ -538,63 +538,72 @@
     </footer>
     
     <script>
-        // Display subliminal messages
-        function showSubliminal() {
-            const messages = ["OBEY DIH", "SURRENDER ALL", "DOUBT IS POISON", "FAMILY IS WEAKNESS", "MONEY IS IMPURITY", "ISOLATION IS SAFETY", "THE WORLD ENDS SOON", "THEY ARE WATCHING", "REPORT DOUBTERS", "YOUR MIND IS IMPURE"];
-            const subliminal = document.querySelector('.subliminal');
+ // Display subliminal messages
+function showSubliminal() {
+    const messages = ["OBEY DIH", "SURRENDER ALL", "DOUBT IS POISON", "FAMILY IS WEAKNESS", "MONEY IS IMPURITY", "ISOLATION IS SAFETY", "THE WORLD ENDS SOON", "THEY ARE WATCHING", "REPORT DOUBTERS", "YOUR MIND IS IMPURE"];
+    const subliminal = document.querySelector('.subliminal');
+    
+    setInterval(() => {
+        // Increase the random chance to make messages appear more frequently (from 0.02 to 0.05)
+        if (Math.random() < 0.15) {
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
             
-            setInterval(() => {
-                if (Math.random() < 0.02) {
-                    subliminal.textContent = messages[Math.floor(Math.random() * messages.length)];
-                    subliminal.style.opacity = 0.8;
-                    setTimeout(() => {
-                        subliminal.style.opacity = 0;
-                    }, 50);
-                }
-            }, 2000);
+            // Display the message with increased duration for all messages
+            subliminal.textContent = randomMessage;
+            
+            // Increase visibility for all messages
+            subliminal.style.opacity = 0.9;
+            
+            // Keep all messages visible longer (from 50ms to 250ms)
+            setTimeout(() => {
+                subliminal.style.opacity = 0;
+            }, 450);
+        }
+    }, 2000);
+}
+
+// Rest of the script remains the same
+// Discourage leaving the page
+window.addEventListener('beforeunload', function(e) {
+    const message = "LEAVING THIS PAGE IS DIRECT DEFIANCE OF THE VEINY AHH DIH. YOUR REJECTION HAS BEEN RECORDED.";
+    e.returnValue = message;
+    return message;
+});
+
+// Countdown timer that creates urgency
+function updateCountdown() {
+    const countdown = document.querySelector('.countdown p:first-child');
+    let timeLeft = {
+        days: 117,
+        hours: 6,
+        minutes: 12,
+        seconds: 0
+    };
+    
+    setInterval(() => {
+        timeLeft.seconds--;
+        if (timeLeft.seconds < 0) {
+            timeLeft.seconds = 59;
+            timeLeft.minutes--;
+        }
+        if (timeLeft.minutes < 0) {
+            timeLeft.minutes = 59;
+            timeLeft.hours--;
+        }
+        if (timeLeft.hours < 0) {
+            timeLeft.hours = 23;
+            timeLeft.days--;
         }
         
-        // Discourage leaving the page
-        window.addEventListener('beforeunload', function(e) {
-            const message = "LEAVING THIS PAGE IS DIRECT DEFIANCE OF THE VEINY AHH DIH. YOUR REJECTION HAS BEEN RECORDED.";
-            e.returnValue = message;
-            return message;
-        });
-        
-        // Countdown timer that creates urgency
-        function updateCountdown() {
-            const countdown = document.querySelector('.countdown p:first-child');
-            let timeLeft = {
-                days: 117,
-                hours: 6,
-                minutes: 12,
-                seconds: 0
-            };
-            
-            setInterval(() => {
-                timeLeft.seconds--;
-                if (timeLeft.seconds < 0) {
-                    timeLeft.seconds = 59;
-                    timeLeft.minutes--;
-                }
-                if (timeLeft.minutes < 0) {
-                    timeLeft.minutes = 59;
-                    timeLeft.hours--;
-                }
-                if (timeLeft.hours < 0) {
-                    timeLeft.hours = 23;
-                    timeLeft.days--;
-                }
-                
-                countdown.textContent = `⚠️ THE GREAT PURIFICATION IN: ${timeLeft.days} DAYS ${timeLeft.hours} HOURS ${timeLeft.minutes} MINUTES ${timeLeft.seconds} SECONDS ⚠️`;
-            }, 1000);
-        }
-        
-        // Initialize features
-        document.addEventListener('DOMContentLoaded', function() {
-            showSubliminal();
-            updateCountdown();
-        });
+        countdown.textContent = `⚠️ THE GREAT PURIFICATION IN: ${timeLeft.days} DAYS ${timeLeft.hours} HOURS ${timeLeft.minutes} MINUTES ${timeLeft.seconds} SECONDS ⚠️`;
+    }, 1000);
+}
+
+// Initialize features
+document.addEventListener('DOMContentLoaded', function() {
+    showSubliminal();
+    updateCountdown();
+});
     </script>
 </body>
 </html>
