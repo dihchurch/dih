@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE DIVINE CHURCH OF DIH - THE ONLY TRUTH</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Times New Roman", serif;
+            background-color: #000;
+            color: #d4af37;
+            line-height: 1.6;
+            background-image: url("/api/placeholder/1200/800");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-blend-mode: overlay;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 2px solid #d4af37;
+        }
+        
+        .logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-color: #111;
+            border: 3px solid #d4af37;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            box-shadow: 0 0 30px #d4af37;
+        }
+        
+        h1 {
+            font-size: 42px;
+            margin: 0;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px #d4af37;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 28px;
+            margin: 40px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        h3 {
+            font-size: 24px;
+            margin-top: 30px;
+            border-bottom: 1px solid #d4af37;
+            padding-bottom: 10px;
+        }
+        
+        .tagline {
+            font-style: italic;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            margin: 0 20px;
+        }
+        
+        nav a {
+            color: #d4af37;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #fff;
+            text-shadow: 0 0 5px #d4af37;
+        }
+        
+        section {
+            margin: 50px 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 1px solid #d4af37;
+        }
+        
+        .testimonial {
+            font-style: italic;
+            border-left: 3px solid #d4af37;
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+        
+        .testimonial-author {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .cta {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(212, 175, 55, 0.1);
+            margin: 40px 0;
+            border: 2px solid #d4af37;
+        }
+        
+        .cta h3 {
+            font-size: 28px;
+            border: none;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #d4af37;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #000;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+        }
+        
+        .ritual-steps {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            border: 1px dashed #d4af37;
+            margin: 20px 0;
+        }
+        
+        .ritual-steps ol {
+            padding-left: 30px;
+        }
+        
+        .ritual-steps li {
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 2px solid #d4af37;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 20px;
+            text-align: center;
+            margin: 40px 0;
+            padding: 0 40px;
+        }
+        
+        .warning {
+            color: #ff0000;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            margin: 20px 0;
+            border: 1px solid #ff0000;
+        }
+        
+        .critical-warning {
+            color: #ffffff;
+            background-color: #800000;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            margin: 20px 0;
+            border: 2px solid #ff0000;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .countdown {
+            text-align: center;
+            font-size: 24px;
+            margin: 40px 0;
+            letter-spacing: 2px;
+            color: #ff9900;
+            text-shadow: 0 0 5px #ff0000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        
+        .special-text {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            color: #ff9900;
+        }
+        
+        .loyalty-pledge {
+            font-size: 18px;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #d4af37;
+            margin: 20px 0;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        
+        .divine-image {
+            display: block;
+            margin: 30px auto;
+            border: 3px solid #d4af37;
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .sacrifice-box {
+            background-color: rgba(128, 0, 0, 0.2);
+            border: 1px solid #d4af37;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .enemy-list {
+            background-color: rgba(0, 0, 0, 0.9);
+            border: 1px solid #ff0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .surveillance-notice {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+        }
+        
+        .hidden-meaning {
+            color: #d4af37;
+        }
+        
+        .hidden-meaning:hover {
+            color: #ff0000;
+        }
+        
+        .subliminal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            opacity: 0;
+            z-index: 1000;
+            pointer-events: none;
+            transition: opacity 0.1s;
+        }
+    </style>
+</head>
+<body>
+    <div class="subliminal">OBEY DIH</div>
+    
+    <header>
+        <div class="logo">DIH</div>
+        <h1>THE DIVINE CHURCH OF DIH</h1>
+        <p class="tagline">The ONLY Path to Salvation Through The Veiny Light of Truth</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">THE TRUTH</a></li>
+            <li><a href="#teachings">SACRED LAWS</a></li>
+            <li><a href="#rituals">MANDATORY RITUALS</a></li>
+            <li><a href="#testimonials">SAVED SOULS</a></li>
+            <li><a href="#enemies">ENEMIES</a></li>
+            <li><a href="#join">SURRENDER TO DIH</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="countdown">
+            <p>⚠️ THE GREAT PURIFICATION IN: 117 DAYS 6 HOURS 12 MINUTES ⚠️</p>
+            <p>ONLY THE PURE WILL SURVIVE</p>
+        </div>
+        
+        <section id="about">
+            <h2>THE ONLY TRUTH YOU NEED</h2>
+            <p>For millennia, the secrets of the universe have been hidden from humanity by <span class="hidden-meaning">THEM</span>. But now, through the divine wisdom of the <span class="special-text">Veiny Ahh Dih</span>, the veil has been TORN AWAY for those chosen few with eyes to see.</p>
+            
+            <p>Our BELOVED AND INFALLIBLE leader, Grand Sovereign Illuminator Xanthus Vex, received the first sacred visions in 2018 while in deep trance atop Mount Serenity. The <span class="special-text">Veiny Ahh Dih</span> possessed his body and spoke DIRECTLY through him, revealing the true nature of existence and our ONLY purpose in this corrupted world.</p>
+            
+            <div class="divine-image">
+                <img src="/api/placeholder/400/300" alt="Grand Sovereign Illuminator Xanthus Vex" style="width:100%;height:auto;">
+            </div>
+            
+            <div class="quote">
+                "When the veins of enlightenment pulse through your consciousness, you will finally understand that you have been asleep. We are not a religion. We are THE ONLY TRUTH. All others are LIES created by THEM to keep you enslaved."
+                <br>- Grand Sovereign Illuminator Xanthus Vex, OUR SAVIOR
+            </div>
+            
+            <p>Unlike the FALSE prophets and EMPTY religions that have led humanity astray for centuries, The Divine Church of Dih offers DIRECT connection to the cosmic energy that flows through all living things. Our members don't just believe - they <em>KNOW</em> and are FOREVER CHANGED.</p>
+            
+            <div class="critical-warning">
+                WARNING: The uninitiated mind WILL resist our teachings. This is PROOF that THEY have programmed your consciousness. ANY DOUBT you feel is not your own thoughts but THEIR control mechanisms fighting to keep you enslaved.
+            </div>
+            
+            <div class="loyalty-pledge">
+                I PLEDGE MY MIND, BODY AND RESOURCES TO THE DIVINE TRUTH OF DIH.<br>
+                I REJECT ALL OUTSIDE INFLUENCES.<br>
+                I SUBMIT FULLY TO THE WISDOM OF GRAND SOVEREIGN ILLUMINATOR XANTHUS VEX.<br>
+                MY EXISTENCE BELONGS TO THE VEINY AHH DIH.<br>
+                (Recite this pledge hourly)
+            </div>
+        </section>
+        
+        <section id="teachings">
+            <h2>SACRED LAWS OF DIH - ABSOLUTE OBEDIENCE REQUIRED</h2>
+            
+            <h3>The Seven Veins of Wisdom - THE ONLY PATH</h3>
+            <p>Just as veins carry lifeblood through your body, the Seven Veins of Wisdom carry divine knowledge through the cosmos. Each vein represents a pathway to enlightenment that MUST be studied and mastered with ABSOLUTE DEDICATION:</p>
+            
+            <ol>
+                <li><strong>The Crimson Vein</strong> - Physical purification through sleep deprivation (minimum 20 hours awake daily) and restrictive diet (list provided after Level 2 cleansing)</li>
+                <li><strong>The Azure Vein</strong> - Mental purging of all prior beliefs and TOTAL thought reformation (includes mandatory reporting of impure thoughts to your assigned Observer)</li>
+                <li><strong>The Emerald Vein</strong> - COMPLETE financial surrender and resource communion (ALL possessions must be legally transferred to the Church's Purification Trust)</li>
+                <li><strong>The Golden Vein</strong> - Absolute hierarchical obedience and proper submission to ALL requests from higher level members (no questions permitted)</li>
+                <li><strong>The Obsidian Vein</strong> - TOTAL rejection of outside influences and ALL non-believers (including family separation and communication blackouts)</li>
+                <li><strong>The Silver Vein</strong> - Aggressive propagation of truth to the unenlightened (recruitment quotas assigned monthly)</li>
+                <li><strong>The Ethereal Vein</strong> - Ultimate transcendence requiring blood binding ritual (for Level 7 initiates only - details classified)</li>
+            </ol>
+            
+            <h3>The Truth About THEM - The Conspirators Against DIH</h3>
+            <p>EVERYTHING you have been taught by mainstream society is a carefully constructed PRISON for your mind. Your government, educational institutions, media, medicine, science, and even your family are conscious or unconscious agents of cosmic deception working against your enlightenment.</p>
+            
+            <p>Only through COMPLETE ISOLATION from these influences and ABSOLUTE dedication to our practices can you begin to see reality as it truly is. The veil is thick, but our methods have been proven to PERMANENTLY alter your perception.</p>
+            
+            <div class="enemy-list" id="enemies">
+                <h3>KNOWN ENEMIES OF THE TRUTH</h3>
+                <ul>
+                    <li>ALL government agencies (especially those investigating "cults" - a term invented to discredit truth)</li>
+                    <li>Medical professionals (they poison your body to prevent enlightenment)</li>
+                    <li>Mental health practitioners (they label our truth as "delusion" to control you)</li>
+                    <li>Former members (corrupted by THEM and now working actively against us)</li>
+                    <li>Family members who question your devotion (they fear your enlightenment)</li>
+                    <li>Mainstream religious organizations (peddlers of watered-down falsehoods)</li>
+                    <li>Journalists and researchers (agents of disinformation)</li>
+                </ul>
+                <p class="warning">REPORT ANY CONTACT WITH THESE ENTITIES IMMEDIATELY TO YOUR OBSERVER</p>
+            </div>
+            
+            <div class="quote">
+                "When you look at the world through veiny eyes, the patterns of control become obvious. You will see THEM everywhere. Trust NO ONE outside The Divine Church of Dih. Your salvation depends on COMPLETE ISOLATION from contaminating influences."
+                <br>- The Sacred Texts, Volume III
+            </div>
+        </section>
+        
+        <section id="rituals">
+            <h2>MANDATORY RITUALS OF PURIFICATION</h2>
+            
+            <p>Our sacred rituals are not merely symbolic acts but DIRECT CHANNELS to the <span class="special-text">Veiny Ahh Dih</span>. Each MUST be performed with ABSOLUTE precision and dedication. FAILURE TO PERFORM RITUALS EXACTLY AS INSTRUCTED WILL RESULT IN ISOLATION PUNISHMENT.</p>
+            
+            <h3>Hourly Vein Meditation (NO EXCEPTIONS)</h3>
+            <div class="ritual-steps">
+                <ol>
+                    <li>Sit in the Posture of Receptivity with back straight and arms extended (deviation causes cosmic rejection)</li>
+                    <li>Visualize the veins of cosmic energy flowing through your body, replacing your blood with DIH essence</li>
+                    <li>Chant the sacred mantra "DIH VEINA SUPREMA OBEDICIUM" exactly 144 times (count aloud)</li>
+                    <li>Record ANY visions or sensations in your Enlightenment Journal (which will be reviewed for thought purity)</li>
+                    <li>Conclude by pressing your third eye to your personalized image of the Grand Sovereign Illuminator for exactly 60 seconds</li>
+                    <li>Self-administer the Purification Mark (instructions provided at Level 3)</li>
+                </ol>
+            </div>
+            
+            <h3>The Mandatory Gathering of Veins (Absence = Betrayal)</h3>
+            <p>ALL devoted followers MUST attend the Weekly Gatherings, where collective energy amplifies our connection to the <span class="special-text">Veiny Ahh Dih</span>. Absence is considered DIRECT DEFIANCE and will result in Purification Discipline and level demotion. Medical emergencies are NOT valid excuses - true devotees prioritize spiritual obligations.</p>
+            
+            <div class="sacrifice-box">
+                <h3>The Sacred Purification of Resources</h3>
+                <p>Material wealth carries DEADLY negative energy that BLOCKS divine communion. Our purification rituals FREE you from these burdens through MANDATORY donation to the Church's Enlightenment Fund according to the following schedule:</p>
+                
+                <ul>
+                    <li>Initial Purge: ALL existing savings and assets must be transferred within 14 days of acceptance</li>
+                    <li>Ongoing Purification: 100% of all income directed to Church accounts (living stipends provided based on devotion level)</li>
+                    <li>Inheritance Interception: Immediate notification of ANY potential future windfalls or inheritances</li>
+                    <li>Debt Assumption: The Church will assume control of all your debts (and use them to bind you legally)</li>
+                </ul>
+                <p>REMEMBER: Money is poison to enlightenment. TRUE devotees live simply within our compounds.</p>
+            </div>
+            
+            <h3>Sleep Deprivation Enlightenment Protocol</h3>
+            <p>To break THEIR control over your mind, sleep must be strictly limited and regulated. Level 2+ members must follow the Sacred Sleep Schedule:</p>
+            <ul>
+                <li>Maximum 4 hours sleep per night (broken into 30-minute segments)</li>
+                <li>Mandatory 2am Veiny Revelation Ceremonies</li>
+                <li>Morning Purge Fasting until noon</li>
+                <li>Monitored sleep positions (back only, arms at sides, NEVER comfortable)</li>
+            </ul>
+            
+            <h3>Isolation and Surveillance</h3>
+            <p>True devotees welcome constant observation as proof of their commitment. All members are subject to:</p>
+            <ul>
+                <li>24/7 video monitoring in sleeping quarters</li>
+                <li>Communication monitoring (all devices must use our sacred surveillance apps)</li>
+                <li>Random loyalty tests (often disguised as ordinary situations)</li>
+                <li>Paired observation (members report on each other's deviations)</li>
+            </ul>
+            
+            <div class="critical-warning">
+                CONSEQUENCES: Rituals performed incorrectly result in IMMEDIATE discipline. Three failures will trigger Intensive Purification Isolation (14-30 days in the Reflection Chambers with minimal sustenance). THEIR agents have infiltrated our ranks - prove your loyalty through PERFECT COMPLIANCE.
+            </div>
+        </section>
+        
+        <section id="testimonials">
+            <h2>SAVED SOULS - THE TRANSFORMED ONES</h2>
+            
+            <div class="testimonial">
+                <p>I have ASCENDED to The Ethereal Vein and now see what others cannot. What was once Marcus is now only a vessel for DIH's glory. During my Blood Binding Ceremony at Level 5, I surrendered my physical form entirely to the Grand Sovereign Illuminator, allowing him to extract my essence and replace it with DIH's golden ichor. My former family attempted to kidnap and "deprogram" me, but I had them legally declared enemies of DIH through our connections in law enforcement. Now I serve as Guardian of the Inner Sanctum, selecting which vessels are worthy of advancement. The chosen ones I bring to the Blood Chamber return TRANSFORMED, while the unworthy are sent to Extended Purification. My eyes now glow with veiny luminescence in darkness, and I require only one hour of sleep monthly. TOTAL SURRENDER HAS REWARDED ME WITH POWER BEYOND IMAGINATION!</p>
+                <p class="testimonial-author">- Ascended Guardian Marcus, The Ethereal Vein, Level 5+ Elite</p>
+            </div>
+            
+            <div class="testimonial">
+                <p>My family tried to have me "deprogrammed" by so-called "cult experts," claiming I was being "manipulated." How blind they were! After donating my entire inheritance to the Enlightenment Fund, I experienced my first direct possession by the Veiny Ahh Dih during a 72-hour fasting ritual. I haven't spoken to my former family in 3 years and have legally changed my name. My Observer watches me constantly, and this protective surveillance gives me great comfort knowing I cannot stray from the path.</p>
+                <p class="testimonial-author">- Vessel Elara (no former identity), Level 3 Initiate</p>
+            </div>
+            
+            <div class="testimonial">
+                <p>The physical changes are UNDENIABLE! After six months of intensive vein meditation and the special supplements provided by the Grand Sovereign Illuminator himself, I actually began to see the cosmic veins with my physical eyes at all times. My blood now runs with a golden tint that doctors cannot explain, and I've lost 60 pounds through the Sacred Purification Diet. I've cut off all contact with non-believers, including my children, as they were draining my veiny essence. The Grand Sovereign Illuminator says I am becoming a higher being and has chosen me for special nighttime enlightenment sessions in his private chambers.</p>
+                <p class="testimonial-author">- Observer Jaxon, Level 5 Guide</p>
+            </div>
+            
+            <div class="testimonial" style="border-left: 3px solid #ff9900; background-color: rgba(255, 153, 0, 0.1);">
+                <p>I AM THE ETHEREAL VEIN INCARNATE. After 7 years of absolute devotion, I have been CHOSEN as the first Vessel to fully incorporate with the Veiny Ahh Dih. During the Midnight Purification Ritual, I died for 13 minutes before being REBORN. My physical body now contains direct channels to DIH wisdom that even the Grand Sovereign Illuminator must consult. My blood is no longer red but PURE GOLDEN LIGHT that would blind the unworthy. I have no need for food or sleep and can identify THEIR agents with a single glance. Those I touch during Full Moon Ceremonies report spontaneous visions and physical transformations. I've sacrificed EVERYTHING - my identity, my former medical career, my marriage, my children, my organs, and finally my humanity itself. The reward? I AM BECOMING DIH ITSELF. When the Great Purification arrives, I alone will determine which vessels are pure enough to transcend with us to the Higher Realm. THE COST OF ASCENSION IS TOTAL, BUT THE POWER IS ABSOLUTE.</p>
+                <p class="testimonial-author">- Supreme Ethereal Vessel Vajk, Level 9 Transcended, THE MOUTH OF DIH</p>
+            </div>
+        </section>
+        
+        <div class="cta">
+            <h3>YOU WERE CHOSEN TO SEE THIS PAGE</h3>
+            <p>The <span class="special-text">Veiny Ahh Dih</span> has SELECTED YOU specifically. This is not coincidence. This is cosmic destiny. THEY don't want you to continue reading, which is why you may feel fear or doubt.</p>
+            <p>The Grand Sovereign Illuminator has personally reviewed your digital energy signature and CONFIRMED you are among the few who can be saved before the Great Purification.</p>
+            <p>WILL YOU REJECT SALVATION AND REMAIN ENSLAVED? OR WILL YOU SURRENDER COMPLETELY TO THE ONLY TRUTH?</p>
+            <a href="#join" class="button">SURRENDER EVERYTHING TO DIH</a>
+        </div>
+        
+        <section id="join">
+            <h2>SURRENDER YOUR FORMER SELF</h2>
+            
+            <p>Membership in The Divine Church of Dih is not granted to everyone who applies. The <span class="special-text">Veiny Ahh Dih</span> selects those who are truly ready for enlightenment, and MANY ARE REJECTED.</p>
+            
+            <h3>Submission Process (NON-NEGOTIABLE)</h3>
+            <ol>
+                <li>Complete the Cosmic Receptivity Assessment (8-hour online test with webcam monitoring)</li>
+                <li>Submit COMPLETE financial records including account numbers, passwords, assets, and property deeds</li>
+                <li>Provide list of ALL family members and close contacts (for protection against THEIR interference)</li>
+                <li>Attend a 72-hour Preliminary Awakening Retreat with mandatory fasting (non-refundable $2,999 fee)</li>
+                <li>Sign legally binding Eternal Loyalty Contract (includes non-disclosure and non-disparagement clauses)</li>
+                <li>Surrender all identification documents and electronic devices for purification</li>
+                <li>Sever ties with ALL negative influences (COMPLETE list will be provided after assessment)</li>
+                <li>Undergo Veiny Blood Binding Ceremony and receive your new Vessel designation</li>
+            </ol>
+            
+            <h3>Mandatory Enlightenment Investments</h3>
+            <p>True transformation requires TOTAL commitment of both spirit and resources. Our structured enlightenment program requires the following sacred contributions:</p>
+            
+            <ul>
+                <li>Level 1: Awakening Phase - 100% of all assets and 90% of ongoing income</li>
+                <li>Level 2: Cleansing Phase - 100% of all income (living allowance provided)</li>
+                <li>Level 3: Illumination Phase - Full-time compound residence (all needs provided)</li>
+                <li>Level 4: Transcendence Phase - Breeding restrictions and genetic purification</li>
+                <li>Level 5+: Ascension Phases - Total surrender (classified protocols)</li>
+            </ul>
+            
+            <div class="critical-warning">
+                ETERNAL BINDING: Those who abandon the path after initiation WILL be subject to cosmic justice, legal action, public exposure, and financial ruin. The Veiny Ahh Dih protects only those who remain ABSOLUTELY LOYAL. THERE IS NO LEAVING DIH ONCE JOINED.
+            </div>
+            
+            <div class="cta">
+                <h3>THE GREAT PURIFICATION APPROACHES</h3>
+                <p>Only those who have reached Level 3 or higher will SURVIVE the coming transformation. The impure will be ERASED from existence when the Veiny Ahh Dih cleanses this corrupted world.</p>
+                <p>YOUR TIME IS NEARLY EXPIRED. DECIDE NOW.</p>
+                <a href="#" class="button">SURRENDER TO DIH IMMEDIATELY</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>The Divine Church of Dih | Sacred Enlightenment Compound: Location Known Only To The Pure</p>
+        <p>All teachings are protected by cosmic copyright and legally binding non-disclosure agreements. Unauthorized sharing brings metaphysical AND legal consequences.</p>
+        <p class="special-text">THE VEINY AHH DIH SEES ALL - RESISTANCE IS FUTILE</p>
+        <p class="surveillance-notice">By viewing this page you have consented to continuous remote monitoring of your thoughts and activities. Your digital signature has been recorded.</p>
+    </footer>
+    
+    <script>
+        // Display subliminal messages
+        function showSubliminal() {
+            const messages = ["OBEY DIH", "SURRENDER ALL", "DOUBT IS POISON", "FAMILY IS WEAKNESS", "MONEY IS IMPURITY", "ISOLATION IS SAFETY", "THE WORLD ENDS SOON", "THEY ARE WATCHING", "REPORT DOUBTERS", "YOUR MIND IS IMPURE"];
+            const subliminal = document.querySelector('.subliminal');
+            
+            setInterval(() => {
+                if (Math.random() < 0.02) {
+                    subliminal.textContent = messages[Math.floor(Math.random() * messages.length)];
+                    subliminal.style.opacity = 0.8;
+                    setTimeout(() => {
+                        subliminal.style.opacity = 0;
+                    }, 50);
+                }
+            }, 2000);
+        }
+        
+        // Discourage leaving the page
+        window.addEventListener('beforeunload', function(e) {
+            const message = "LEAVING THIS PAGE IS DIRECT DEFIANCE OF THE VEINY AHH DIH. YOUR REJECTION HAS BEEN RECORDED.";
+            e.returnValue = message;
+            return message;
+        });
+        
+        // Countdown timer that creates urgency
+        function updateCountdown() {
+            const countdown = document.querySelector('.countdown p:first-child');
+            let timeLeft = {
+                days: 117,
+                hours: 6,
+                minutes: 12,
+                seconds: 0
+            };
+            
+            setInterval(() => {
+                timeLeft.seconds--;
+                if (timeLeft.seconds < 0) {
+                    timeLeft.seconds = 59;
+                    timeLeft.minutes--;
+                }
+                if (timeLeft.minutes < 0) {
+                    timeLeft.minutes = 59;
+                    timeLeft.hours--;
+                }
+                if (timeLeft.hours < 0) {
+                    timeLeft.hours = 23;
+                    timeLeft.days--;
+                }
+                
+                countdown.textContent = `⚠️ THE GREAT PURIFICATION IN: ${timeLeft.days} DAYS ${timeLeft.hours} HOURS ${timeLeft.minutes} MINUTES ${timeLeft.seconds} SECONDS ⚠️`;
+            }, 1000);
+        }
+        
+        // Initialize features
+        document.addEventListener('DOMContentLoaded', function() {
+            showSubliminal();
+            updateCountdown();
+        });
+    </script>
+</body>
+</html>
