@@ -216,22 +216,175 @@
             letter-spacing: 2px;
         }
         
-        .countdown {
+.countdown {
             text-align: center;
-            font-size: 24px;
-            margin: 40px 0;
-            letter-spacing: 2px;
-            color: #ff9900;
-            text-shadow: 0 0 5px #ff0000;
-            animation: pulse 2s infinite;
+            margin: 60px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(128,0,0,0.3), rgba(0,0,0,0.9));
+            border: 2px solid #d4af37;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
         }
-        
-        @keyframes pulse {
+
+        .countdown::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            animation: rotate 4s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .countdown-title {
+            font-size: 32px;
+            color: #ff0000;
+            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 4px;
+            animation: urgentPulse 1.5s infinite;
+        }
+
+        @keyframes urgentPulse {
+            0% { 
+                opacity: 1; 
+                transform: scale(1);
+                text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+            }
+            50% { 
+                opacity: 0.8; 
+                transform: scale(1.05);
+                text-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000, 0 0 75px #ff6600;
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1);
+                text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+            }
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background: linear-gradient(145deg, rgba(212, 175, 55, 0.2), rgba(0, 0, 0, 0.8));
+            border: 1px solid #d4af37;
+            border-radius: 15px;
+            padding: 20px;
+            min-width: 80px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .time-unit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .time-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff9900;
+            text-shadow: 0 0 10px #ff9900;
+            display: block;
+            line-height: 1;
+        }
+
+        .time-label {
+            font-size: 14px;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 8px;
+            display: block;
+        }
+
+        .countdown-warning {
+            font-size: 18px;
+            color: #ffffff;
+            margin-top: 25px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px #ff0000;
+            animation: warningFlash 2s infinite;
+        }
+
+        @keyframes warningFlash {
+            0%, 50% { color: #ffffff; }
+            25%, 75% { color: #ff0000; }
+        }
+
+        .loading {
+            color: #d4af37;
+            font-size: 24px;
+            text-shadow: 0 0 10px #d4af37;
+            animation: loadingPulse 1s infinite;
+        }
+
+        @keyframes loadingPulse {
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
+        }
+
+        .error {
+            color: #ff0000;
+            font-size: 28px;
+            font-weight: bold;
+            text-shadow: 0 0 20px #ff0000;
+            animation: errorFlash 0.5s infinite;
+        }
+
+        @keyframes errorFlash {
             0% { opacity: 1; }
             50% { opacity: 0.7; }
             100% { opacity: 1; }
         }
-        
+
+        @media (max-width: 768px) {
+            .countdown-display {
+                gap: 15px;
+            }
+            
+            .time-unit {
+                padding: 15px;
+                min-width: 60px;
+            }
+            
+            .time-number {
+                font-size: 28px;
+            }
+            
+            .countdown-title {
+                font-size: 24px;
+            }
+        }        
         .special-text {
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -326,9 +479,10 @@
     
     <div class="container">
         <div class="countdown">
-            <p>⚠️ THE GREAT PURIFICATION IN: 117 DAYS 6 HOURS 12 MINUTES ⚠️</p>
+            <p class="loading">Loading countdown...</p>
             <p>ONLY THE PURE WILL SURVIVE</p>
         </div>
+    </div>
         
         <section id="about">
             <h2>THE ONLY TRUTH YOU NEED</h2>
@@ -538,72 +692,91 @@
     </footer>
     
     <script>
- // Display subliminal messages
-function showSubliminal() {
-    const messages = ["OBEY DIH", "SURRENDER ALL", "DOUBT IS POISON", "FAMILY IS WEAKNESS", "MONEY IS IMPURITY", "ISOLATION IS SAFETY", "THE WORLD ENDS SOON", "THEY ARE WATCHING", "REPORT DOUBTERS", "YOUR MIND IS IMPURE"];
-    const subliminal = document.querySelector('.subliminal');
-    
-    setInterval(() => {
-        // Increase the random chance to make messages appear more frequently (from 0.02 to 0.05)
-        if (Math.random() < 0.05) {
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        // Display subliminal messages
+        function showSubliminal() {
+            const messages = ["OBEY DIH", "SURRENDER ALL", "DOUBT IS POISON", "FAMILY IS WEAKNESS", "MONEY IS IMPURITY", "ISOLATION IS SAFETY", "THE WORLD ENDS SOON", "THEY ARE WATCHING", "REPORT DOUBTERS", "YOUR MIND IS IMPURE"];
+            const subliminal = document.querySelector('.subliminal');
             
-            // Display the message with increased duration for all messages
-            subliminal.textContent = randomMessage;
-            
-            // Increase visibility for all messages
-            subliminal.style.opacity = 0.9;
-            
-            // Keep all messages visible longer (from 50ms to 250ms)
-            setTimeout(() => {
-                subliminal.style.opacity = 0;
-            }, 450);
+            setInterval(() => {
+                if (Math.random() < 0.05) {
+                    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                    subliminal.textContent = randomMessage;
+                    subliminal.style.opacity = 0.9;
+                    
+                    setTimeout(() => {
+                        subliminal.style.opacity = 0;
+                    }, 450);
+                }
+            }, 2000);
         }
-    }, 2000);
-}
 
-// Rest of the script remains the same
-// Discourage leaving the page
-window.addEventListener('beforeunload', function(e) {
-    const message = "LEAVING THIS PAGE IS DIRECT DEFIANCE OF THE VEINY AHH DIH. YOUR REJECTION HAS BEEN RECORDED.";
-    e.returnValue = message;
-    return message;
-});
+        // Discourage leaving the page
+        window.addEventListener('beforeunload', function(e) {
+            const message = "LEAVING THIS PAGE IS DIRECT DEFIANCE OF THE VEINY AHH DIH. YOUR REJECTION HAS BEEN RECORDED.";
+            e.returnValue = message;
+            return message;
+        });
 
-// Countdown timer that creates urgency
-function updateCountdown() {
-    const countdown = document.querySelector('.countdown p:first-child');
-    let timeLeft = {
-        days: 117,
-        hours: 6,
-        minutes: 12,
-        seconds: 0
+function loadCountdownData() {
+    // Embed the JSON data directly instead of fetching
+    const data = {
+        "targetDate": "2025-06-14T16:12:33.000Z"
     };
-    
-    setInterval(() => {
-        timeLeft.seconds--;
-        if (timeLeft.seconds < 0) {
-            timeLeft.seconds = 59;
-            timeLeft.minutes--;
-        }
-        if (timeLeft.minutes < 0) {
-            timeLeft.minutes = 59;
-            timeLeft.hours--;
-        }
-        if (timeLeft.hours < 0) {
-            timeLeft.hours = 23;
-            timeLeft.days--;
-        }
-        
-        countdown.textContent = `⚠️ THE GREAT PURIFICATION IN: ${timeLeft.days} DAYS ${timeLeft.hours} HOURS ${timeLeft.minutes} MINUTES ${timeLeft.seconds} SECONDS ⚠️`;
-    }, 1000);
+    return Promise.resolve(data);
 }
 
-// Initialize features
-document.addEventListener('DOMContentLoaded', function() {
-    showSubliminal();
-    updateCountdown();
-});
+        // Function to update the countdown display
+        function updateCountdown(targetDate) {
+            const countdownElement = document.querySelector('.countdown p:first-child');
+            
+            function tick() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+                
+                if (distance < 0) {
+                    countdownElement.textContent = "⚠️ THE GREAT PURIFICATION HAS BEGUN! ⚠️";
+                    countdownElement.className = "error";
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                countdownElement.textContent = `⚠️ TIME UNTIL GREAT PURIFICATION: ${days}d ${hours}h ${minutes}m ${seconds}s ⚠️`;
+                countdownElement.className = "loading";
+            }
+            
+            tick();
+            setInterval(tick, 1000);
+        }
+
+        // Initialize countdown on page load
+        async function initCountdown() {
+            const countdownElement = document.querySelector('.countdown p:first-child');
+            
+            try {
+                const data = await loadCountdownData();
+                const targetDate = new Date(data.targetDate).getTime();
+                
+                if (isNaN(targetDate)) {
+                    throw new Error('Invalid date format in JSON');
+                }
+                
+                updateCountdown(targetDate);
+            } catch (error) {
+                console.error('Failed to initialize countdown:', error);
+                countdownElement.textContent = "⚠️ COSMIC INTERFERENCE DETECTED - PURIFICATION DATE CLASSIFIED ⚠️";
+                countdownElement.className = "error";
+            }
+        }
+
+        // Start everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            showSubliminal();
+            initCountdown();
+        });
     </script>
 </body>
 </html>
